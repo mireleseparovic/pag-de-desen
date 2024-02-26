@@ -6,9 +6,6 @@ const port = process.env.PORT || 3000;
 const multer = require('multer');
 const path = require('path');
 
-// Configure o middleware cors
-app.use(cors());
-
 // Configuração do Multer para upload de imagens
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
