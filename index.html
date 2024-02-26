@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webcam config</title>
+    <style>
+        body {
+            margin: 20px;
+        }
+
+        #downloadAll {
+            background-color: rgb(255, 238, 0);
+            border-color: #ffbb00;
+            transition: background-color 0.3s ease, border 0.3s ease;;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            margin-left: 60px;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: transform 0.3s;
+            
+        }
+
+        #downloadAll:hover {
+            background-color: rgb(252, 0, 126);
+            border: 2px solid #df5ec9;
+            transform: scale(1.1);
+
+        }
+
+        #currentMonth {
+            display: inline-block;
+            margin-right: 90px;
+        }
+
+        #myParagraph {
+            color: #505050;
+            font-family: 'Arial', sans-serif;
+            font-size:13px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 id="currentMonth"></h2>
+    <button id="downloadAll">baixar todos do mês</button>
+
+    <p id="myParagraph">Arquivos</p>
+
+    <div id="imageList"></div>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script>
+        // Chamada para exibir o mês atual
+        displayCurrentMonth();
+    </script>   
+
+</body>
+</html>
