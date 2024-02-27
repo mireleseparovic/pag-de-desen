@@ -6,6 +6,9 @@ const port = process.env.PORT || 3000;
 const multer = require('multer');
 const path = require('path');
 
+// Configuração ddo CORS
+app.use(cors());
+
 // Configuração do Multer para upload de imagens
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -18,9 +21,6 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
-// Configuração ddo CORS
-app.use(cors());
 
 // Rota para lidar com o upload de imagens
 app.post('/', upload.single('image'), (req, res) => {
