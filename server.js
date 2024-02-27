@@ -7,7 +7,9 @@ const multer = require('multer');
 const path = require('path');
 
 // Configuração ddo CORS
-app.use(cors());
+app.use(cors()){
+ origin: 'https://cam-para-desen.vercel.app',
+}));
 
 // Configuração do Multer para upload de imagens
 const storage = multer.diskStorage({
