@@ -23,7 +23,7 @@ const upload = multer({ storage });
 app.use(cors());
 
 // Rota para lidar com o upload de imagens
-app.post('/api/upload', upload.single('image'), (req, res) => {
+app.post('/', upload.single('image'), (req, res) => {
   try {
     // Acesso à imagem enviada
     const imageUrl = req.file.path; 
