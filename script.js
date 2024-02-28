@@ -68,13 +68,14 @@ function downloadImage(imageName) {
 // Função para enviar imagem para o servidor
 async function sendImageToServer(imageData) {
     try {
-        const response = await fetch('/api/upload', {
+        const formData = new FormData();
+        formData.append('image', imageData);
+
+        const response = await fetch('https://pag-de-desen.vercel.app/', {
             method: 'POST',
-            body: JSON.stringify({ image: imageData }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            body: formData,
         });
+
         const data = await response.json();
         console.log('Imagem enviada para o servidor:', data.imageUrl);
 
@@ -90,15 +91,18 @@ async function sendImageToServer(imageData) {
 async function getImagesFromBackend() {
     try {
         // Substitua '/api/images' pela rota real do seu backend
-        const response = await fetch('/api/images');
+        const response = await fetch('https://pag-de-desen.vercel.app/', {
+            method: 'GET',  // Ou o método correto para obter as imagens
+        });
+
         const data = await response.json();
         return data.images || [];
     } catch (error) {
         console.error('Erro ao obter imagens do backend:', error);
         return [];
     }
-
 }
+
 
 // Função para exibir as imagens na lista
 async function displayImages() {
